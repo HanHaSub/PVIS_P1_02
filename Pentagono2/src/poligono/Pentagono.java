@@ -10,6 +10,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.util.Scanner;
 import javax.swing.JFrame;
 
 /**
@@ -38,11 +39,46 @@ public class Pentagono extends JFrame {
         g2d.setPaint(Color.MAGENTA);
         g2d.drawPolygon(poligono1);
     }
-   
+    
+    double Lado;
+    double Apotema;
+    double Perimetro;
+    double Area;
+    
+    Scanner L = new Scanner (System.in);
+    
+    
+    public void leerLado(){
+        System.out.println("Escribe el numero de Lados");
+        Lado = L.nextDouble();
+        }
+    
+    public void LeerApotema(){
+        System.out.println("Escribe los Valores del Apotema: ");
+        Apotema = L.nextDouble();
+    }
+    
+    public void Perimetro(){
+        Perimetro=Lado+Lado+Lado+Lado+Lado;
+    }
+    
+    public void Area(){
+        Area = Perimetro * Apotema / 2;
+    }
     public static void main (String args []){
         Pentagono aplicacion = new Pentagono();
         aplicacion.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
-    
+        Pentagono P = new Pentagono();
+            P.leerLado();
+            P.LeerApotema();
+            P.Perimetro();
+            P.Area();
+            P.Mostrar();
+        }
+    public void Mostrar(){
+        System.out.println("Valor de los Lados: " +Lado);
+        System.out.println("El Perimetro del Poligono: " + Perimetro);
+        System.out.println("El area del Poligono es: " + Area);  
     }
     
 }
